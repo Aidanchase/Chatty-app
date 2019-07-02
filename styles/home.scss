@@ -1,10 +1,8 @@
 
     @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700");
     @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css");
+$mainColor: skyblue;
 
-h1 {
-  color: tomato;
-}
 body {
   background: white;
   color: black;
@@ -13,8 +11,8 @@ body {
   margin: 70px 0;
 }
 
-.chatbar {
-  background: tomato;
+#chatbar {
+  background: $mainColor;
   border-top: 1px solid black;
   bottom: 0;
   display: flex;
@@ -47,29 +45,37 @@ body {
   padding: 5px;
 }
 
-.message.system {
+div{
+.message-system {
+  flex: 1;
   font-style: italic;
-  padding: 5px 20px;
+  padding: 0 5px;
+}
 }
 
 .message-content,
 .message-username {
-  overflow: hidden;
   margin: 5px;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 .message-content {
   flex: 8;
 }
 
-.message-username {
-  flex: 2;
-  font-weight: 700;
-}
 
-.navbar {
-  background: tomato;
+.message-username {
+  flex: 1;
+  font-weight: 700;
+    }
+
+
+
+
+  #navbar {
+  display: flex;
+  align-items: center;
+  background: $mainColor;
   border-bottom: 1px solid black;
   height: 60px;
   left: 0;
@@ -79,14 +85,20 @@ body {
   top: 0;
 }
 
-.navbar-brand {
-  color: inherit;
+ #navbar {
+   a{
+  text-decoration: none;
+   }
+}
+#navbar{
+  h1{
+color: darkred;
   display: block;
-  float: left;
+  justify-content: flex-start;
   font-weight: 700;
   font-size: 28px;
   height: 60px;
   line-height: 60px;
   padding: 0 10px;
-  text-decoration: none;
+  }
 }
