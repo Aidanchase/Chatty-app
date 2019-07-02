@@ -5,25 +5,11 @@ import SystemMessage from './SystemMessage.jsx'
 import MessageList from './Message-list.jsx';
 import Footer from './footer.jsx'
 import Loading from './Loading.jsx'
-{/* c
-<main class="messages">
-<div class="message">
-  <span class="message-username">Anonymous1</span>
-  <span class="message-content">I won't be impressed with technology until I can download food.</span>
-</div>
-<div class="message system">
-  Anonymous1 changed their name to nomnom.
-</div>
-</main>
-<footer class="chatbar">
-<input class="chatbar-username" placeholder="Your Name (Optional)" />
-<input class="chatbar-message" placeholder="Type a message and hit ENTER" />
-</footer>); */}
 
 class App extends Component {
   constructor(props){
     super(props)
-    this.state = {currentUser: "Aidan", loading: true} 
+    this.state = {currentUser: "Aidan", messages: [{username: "aidan", content: "I love pizza"}], loading: true} 
    }
     componentDidMount() {
       // After 3 seconds, set `loading` to false in the state.
@@ -39,7 +25,7 @@ class App extends Component {
       <div>
       {Nav()}
       <MessageList/>
-      <Message/>
+      <Message messages={this.state.messages}/>
       <SystemMessage/>
       <Footer user={this.state.currentUser}/>
       </div>
