@@ -6,11 +6,34 @@ import MessageList from './Message-list.jsx';
 import Footer from './footer.jsx'
 import Loading from './Loading.jsx'
 
+const userInfo = {
+    currentUser: {name: "Bob"}, // optional. if currentUser is not defined, it means the user is Anonymous
+}
+    const messageData = [
+      {
+        username: "Bob",
+        content: "Has anyone seen my marbles?",
+      },
+      {
+        username: "Anonymous",
+        content: "No, I think you lost them. You lost your marbles Bob. You lost them for good."
+      }
+    ]
+    const generateKey = () =>{
+      return Math.random().toString();
+  }
+  const listMessages = (mssgs)=>{
+    const messages=[];
+    mssgs.forEach((mssg)=>{
+      messages.push(<Message key={generateKey()} username={mssg.username} content={mssg.content}/>);
+    })
+    return messages;
+  }
 class App extends Component {
   constructor(props){
     super(props)
-    this.state = {currentUser: "Aidan", messages: [{username: "aidan", content: "I love pizza"}], loading: true} 
-   }
+    this.state = {currentUser: "Aidan", loading: true} 
+  }
     componentDidMount() {
       // After 3 seconds, set `loading` to false in the state.
       setTimeout(() => {
@@ -24,10 +47,9 @@ class App extends Component {
     return (
       <div>
       {Nav()}
-      <MessageList/>
-      <Message messages={this.state.messages}/>
+      <MessageList messages={listMessages(messageData)}/>
       <SystemMessage/>
-      <Footer user={this.state.currentUser}/>
+      <Footer />
       </div>
       );
   }

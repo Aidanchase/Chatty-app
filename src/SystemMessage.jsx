@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 class SystemMessage extends Component{
     constructor(props){
         super(props)
