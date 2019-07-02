@@ -1,17 +1,21 @@
 
-    @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700");
+    @import url("https://fonts.googleapis.com/css?family=News+Cycle:400,700&display=swap");
     @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css");
-$mainColor: skyblue;
+    @import url("https://fonts.googleapis.com/css?family=Warnes&display=swap");
+    $mainColor: black;
+
 
 body {
+  font-family: "News Cycle";
   background: white;
   color: black;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   margin: 70px 0;
 }
 
 #chatbar {
+  font-family: "News Cycle";
   background: $mainColor;
   border-top: 1px solid black;
   bottom: 0;
@@ -24,6 +28,7 @@ body {
 
 .chatbar-message,
 .chatbar-username {
+  font-family: "News Cycle";
   border: 1px solid black;
   display: block;
   height: 40px;
@@ -33,38 +38,45 @@ body {
 }
 
 .chatbar-message {
+  font-family: "News Cycle";
   flex: 8;
 }
 
 .chatbar-username {
+  font-family: "News Cycle";
   flex: 2;
 }
 
 .message {
+  font-family: "News Cycle";
   display: flex;
   padding: 5px;
 }
 
-div{
+
 .message-system {
+  font-family: "News Cycle";
   flex: 1;
   font-style: italic;
-  padding: 0 5px;
+  padding-left: 2em;
 }
-}
+
 
 .message-content,
 .message-username {
-  margin: 5px;
+  font-family: "News Cycle";
+  margin: .5em;
   padding: 0 5px;
 }
 
 .message-content {
-  flex: 8;
+  font-family: "News Cycle";
+  flex: 18;
 }
 
 
 .message-username {
+  font-family: "News Cycle";
   flex: 1;
   font-weight: 700;
     }
@@ -73,6 +85,7 @@ div{
 
 
   #navbar {
+  font-family: "Warnes";
   display: flex;
   align-items: center;
   background: $mainColor;
@@ -87,18 +100,31 @@ div{
 
  #navbar {
    a{
+  font-family: "Warnes";
   text-decoration: none;
    }
 }
 #navbar{
   h1{
-color: darkred;
+  font-family: "Warnes";
+  color: #85ffc6;
   display: block;
   justify-content: flex-start;
-  font-weight: 700;
-  font-size: 28px;
-  height: 60px;
-  line-height: 60px;
+  font-weight: 800;
+  font-size: 32px;
+  height: 70px;
+  line-height: 70px;
   padding: 0 10px;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  }
+}
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
   }
 }
