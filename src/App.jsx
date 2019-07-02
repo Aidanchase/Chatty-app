@@ -20,7 +20,11 @@ return (<nav id="navbar">
 </nav>);
     }
 
-const Main = props => {
+class Main extends Component {
+  constructor(props){
+    super(props)
+  }
+  render(){
   return (<main className="messages">
   <div className="message">
     <span className="message-username">Anonymous1</span>
@@ -30,13 +34,19 @@ const Main = props => {
     Anonymous1 changed their name to nomnom.
   </div>
   </main>);
+  }
 }
 
-const Footer = props => {
+class Footer extends Component {
+  constructor(props){
+    super(props)
+  }
+  render(){
   return (<footer id="chatbar">
   <input className="chatbar-username" placeholder="Your Name (Optional)" />
   <input className="chatbar-message" placeholder="Type a message and hit ENTER" />
   </footer>);
+  }
 }
 
 class App extends Component {
