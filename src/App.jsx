@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Nav from "./nav.jsx";
-
 import SystemMessage from "./SystemMessage.jsx";
 import MessageList from "./Message-list.jsx";
 import Footer from "./ChatBar.jsx";
+//const ws = new WebSocket(location.origin.replace()));
+//ws.addeventlistener('open', ()=>{ws.send('wtv)}))}
+//ws.addeventlistener('message', (msg) =>{document.getElementById('messages).appendChils(document.createTextNode(msg/datas))})
 
 const generateKey = () => {
   return Math.random().toString();
@@ -29,10 +31,17 @@ const messageData = [
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentUser: "Aidan", messages: messageData, loading: false };
-  }
+    this.state = { currentUser: "Keanu", messages: messageData, loading: false };
+  };
   componentDidMount() {
-    // After 3 seconds, set `loading` to false in the state.
+    this.ws = new WebSocket('ws://localhost:3001');
+    this.ws.onopen = function(e){
+      console.log('I\'m Open!');
+    };
+    this.ws.onclose = function(e){
+      console.log('The session is over!')
+    };
+    
     console.log("componentDidMount <App />");
     setTimeout(() => {
       console.log("Simulating incoming message");
@@ -54,17 +63,11 @@ class App extends Component {
   //     this.setState({ loading: false }); // this triggers a re-render!
   //   }, 3000);
   // }
-  }
+  };
   addMessage = message =>{
-    const newMessage = {
-        id: generateKey(),
-        username: this.state.currentUser,
-        content: message
-    }
-    let tempMessages = this.state.messages;
-    tempMessages.push(newMessage);
-    this.setState({tempMessages});
-}
+    this.ws.send(JSON.stringify({type: "sendMessage", content: message, username: this.state.currentUser}))
+};
+
   render() {
     if (this.state.loading) {
       return <div>{Loading()}</div>;
@@ -78,6 +81,17 @@ class App extends Component {
       </div>
     );
   }
-}
+};
 
 export default App;
+
+// addMessage = message =>{
+  // const newMessage = {
+  //     id: generateKey(),
+  //     username: this.state.currentUser,
+  //     content: message
+  // }
+  // let tempMessages = this.state.messages;
+  // tempMessages.push(newMessage);
+  // this.setState({tempMessages});
+// }

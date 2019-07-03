@@ -14,12 +14,11 @@ class Footer extends Component {
         console.log(this)
     return (
     <footer id="chatbar">
-     <form>
-     <input className="chatbar-username" placeholder={this.props.user} />
-     </form>
-     <form onSubmit={this.onSubmit}>
-     <input onSubmit={this.onSubmit}className="chatbar-message" placeholder= "Type your message and hit enter" name="messageContent"/>
-     </form>
+        <form>
+            <input className="chatbar-username" placeholder={this.props.user} />
+        </form>
+        <form onSubmit={this.onSubmit}>
+            <input className="chatbar-message-form" onSubmit={this.onSubmit}className="chatbar-message" placeholder= "Type your message and hit enter" name="messageContent"/> </form>
     </footer>);
     }
 }

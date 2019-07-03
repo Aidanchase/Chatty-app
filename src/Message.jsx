@@ -7,24 +7,25 @@ class Message extends Component {
     this.state = {id: this.props.id, content: ""}
     this.delayCont(props.content)
   }
-   delayCont = (content)=>{
+  delayCont = (content)=>{
     let delay = 0;
     for (let char of content){
       setTimeout(function () {
-        this.setState({content: this.state.content += char})}.bind(this), delay+=25
-      )
-  }
+        this.setState({content: this.state.content += char})}.bind(this), delay+=10)
+    } 
 };
 
   render() {
     return (
-     <div className="message">
-        <span className="message-username">{this.props.username}/></span>
+      <div className="message">
+        <span className="message-username">$_ 
+        {this.props.username}</span>
         <span className="message-content">{this.state.content}</span>
       </div>
     );
   }
 }
-{/* <DelayedText text={this.props.username}/></span> */}
 
 export default Message;
+
+{/* <DelayedText text={this.props.username}/></span> */}

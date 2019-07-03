@@ -8,15 +8,15 @@ $mainColor: black;
 
 body {
   font-family: "VT323";
-  background: black;
-  color: #33FF00;
+  background: #001A31;
+  color: #85ffc6;
   font-size: 16px;
   margin: 70px 0;
 }
 
 #chatbar {
   font-family: "VT323";
-  background: $mainColor;
+  background: #001A31;
   border-top: 1px solid black;
   bottom: 0;
   display: flex;
@@ -30,7 +30,7 @@ body {
 .chatbar-username {
   font-family: "VT323";
   border: 1px solid black;
-  display: block;
+  display: hidden;
   height: 40px;
   line-height: 40px;
   margin: 5px;
@@ -48,6 +48,9 @@ body {
   flex: 2;
 }
 
+.chatbar-message-form{
+  background-color: #001A31;
+}
 .message {
   font-family: "VT323";
   display: flex;
@@ -81,11 +84,11 @@ body {
   font-family: "VT323";
   flex: 1;
   font-weight: 700;
-  color: #33FF00;
+  color: #85ffc6;
 }
 
 .messages{
-  padding-top: 50px;
+  padding-top: 110px;
 }
 
 
@@ -95,9 +98,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $mainColor;
+  background: #001A31;
   border-bottom: 1px solid black;
-  height: 80px;
+  height: 150px;
   left: 0;
   padding: 0 10px;
   position: fixed;
@@ -114,7 +117,7 @@ body {
       position: relative;
       text-decoration: none;
       text-align: center;
-      font-size: 20px;
+      font-size: 40px;
       color: #33FF00;
     }
     a:before{
@@ -228,10 +231,10 @@ body {
 
 @keyframes box-glow {
   from {
-    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #e60073, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073;
   }
 
   to {
-    box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    box-shadow: 0 0 5px #fff, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6;
   }
 }
