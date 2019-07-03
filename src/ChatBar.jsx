@@ -10,15 +10,20 @@ class Footer extends Component {
         this.props.newMessage(newMessage.value);
         newMessage.value = "";
     }
+
+    changeUsername = evt =>{
+        evt.preventDefault;
+        const newUsername = evt.target.elements.usernameForm;
+        this.setState({username: newUsername})
+    }
     render(){
-        console.log(this)
     return (
     <footer id="chatbar">
-        <form>
-            <input className="chatbar-username" placeholder={this.props.user} />
+        <form onSubmit={this.changeUsername}className="chatbar-user-form">
+            <input className="chatbar-username" name="usernameForm" placeholder={this.props.user} />
         </form>
         <form onSubmit={this.onSubmit}>
-            <input className="chatbar-message-form" onSubmit={this.onSubmit}className="chatbar-message" placeholder= "Type your message and hit enter" name="messageContent"/> </form>
+            <input className="chatbar-message-form" className="chatbar-message" placeholder= "Type your message and hit enter" name="messageContent"/> </form>
     </footer>);
     }
 }

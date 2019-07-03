@@ -5,6 +5,7 @@ const express = require('express');
 const WsServer = require('ws').Server;
 const server = express();
 
+
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
     watchOptions: {

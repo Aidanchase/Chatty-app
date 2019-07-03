@@ -4,8 +4,8 @@ import React, { Component } from "react";
 class Message extends Component {
   constructor(props){
     super(props)
-    this.state = {id: this.props.id, content: ""}
-    this.delayCont(props.content)
+    this.state = {id: this.props.message.id, content: ""}
+    this.delayCont(props.message.content)
   }
   delayCont = (content)=>{
     let delay = 0;
@@ -19,7 +19,7 @@ class Message extends Component {
     return (
       <div className="message">
         <span className="message-username">$_ 
-        {this.props.username}</span>
+        {this.props.message.username}</span>
         <span className="message-content">{this.state.content}</span>
       </div>
     );

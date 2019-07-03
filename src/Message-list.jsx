@@ -8,8 +8,7 @@ class MessageList extends Component {
                 {this.props.messages.map(mssg => 
                     <Message
                     key={mssg.id}
-                    username={mssg.username}
-                    content={mssg.content}
+                    message={mssg}
                     />
                 )}
             </main>);
