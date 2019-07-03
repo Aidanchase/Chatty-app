@@ -1,40 +1,31 @@
 import React, { Component } from "react";
 import Nav from "./nav.jsx";
-import Message from "./Message.jsx";
+
 import SystemMessage from "./SystemMessage.jsx";
 import MessageList from "./Message-list.jsx";
-import Footer from "./footer.jsx";
+import Footer from "./ChatBar.jsx";
+
+const generateKey = () => {
+  return Math.random().toString();
+};
 
 const userInfo = {
   currentUser: { name: "Bob" } // optional. if currentUser is not defined, it means the user is Anonymous
 };
 const messageData = [
   {
+    id: generateKey(),
     username: "Bob",
     content: "Has anyone seen my marbles?"
   },
   {
+    id: generateKey(),
     username: "Anonymous",
     content:
       "No, I think you lost them. You lost your marbles Bob. You lost them for good."
   }
 ];
-const generateKey = () => {
-  return Math.random().toString();
-};
-const listMessages = mssgs => {
-  const messages = [];
-  mssgs.forEach(mssg => {
-    messages.push(
-      <Message
-        key={generateKey()}
-        username={mssg.username}
-        content={mssg.content}
-      />
-    );
-  });
-  return messages;
-};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -64,6 +55,16 @@ class App extends Component {
   //   }, 3000);
   // }
   }
+  addMessage = message =>{
+    const newMessage = {
+        id: generateKey(),
+        username: this.state.currentUser,
+        content: message
+    }
+    let tempMessages = this.state.messages;
+    tempMessages.push(newMessage);
+    this.setState({tempMessages});
+}
   render() {
     if (this.state.loading) {
       return <div>{Loading()}</div>;
@@ -71,9 +72,9 @@ class App extends Component {
     return (
       <div>
         {Nav()}
-        <MessageList messages={listMessages(this.state.messages)} />
+        <MessageList messages={this.state.messages} />
         <SystemMessage />
-        <Footer />
+        <Footer newMessage={this.addMessage} generateKey={generateKey} user={this.state.currentUser}/>
       </div>
     );
   }
