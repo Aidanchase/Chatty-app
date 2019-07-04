@@ -11,17 +11,18 @@ class Footer extends Component {
         newMessage.value = "";
     }
 
-    changeUsername = evt =>{
-        evt.preventDefault;
-        const newUsername = evt.target.elements.usernameForm;
-        this.setState({username: newUsername})
-    }
+    changeUsername = (evt) =>{
+        evt.preventDefault();
+        const newUsername = evt.target;
+        this.props.changeUser(newUsername.value);
+            newUsername.value = "";
+        }
+
     render(){
+        console.log(this)
     return (
     <footer id="chatbar">
-        <form onSubmit={this.changeUsername}className="chatbar-user-form">
-            <input className="chatbar-username" name="usernameForm" placeholder={this.props.user} />
-        </form>
+            <input onBlur={this.changeUsername} className="chatbar-username" name="usernameForm" placeholder={this.props.user} />
         <form onSubmit={this.onSubmit}>
             <input className="chatbar-message-form" className="chatbar-message" placeholder= "Type your message and hit enter" name="messageContent"/> </form>
     </footer>);

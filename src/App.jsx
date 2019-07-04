@@ -14,20 +14,16 @@ import Footer from "./ChatBar.jsx";
 const userInfo = {
   currentUser: { name: "Bob" } // optional. if currentUser is not defined, it means the user is Anonymous
 };
-const messageData = [];
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentUser: "Keanu", messages: messageData, loading: false };
+    this.state = { currentUser: "Keanu", messages: [], loading: false };
   };
   componentDidMount() {
     this.ws = new WebSocket('ws://localhost:3001');
     this.ws.onopen = function(e){
       console.log('I\'m Open!');
-    };
-    this.ws.onclose = function(e){
-      console.log('The session is over!')
     };
     this.ws.onmessage = (event) =>{
       const {username, content, id} = JSON.parse(event.data)
@@ -39,7 +35,10 @@ class App extends Component {
         this.setState(oldState => {
           return {messages: [...oldState.messages, getNewMessage]}
         });
-    }
+    };
+    this.ws.onclose = function(e){
+      console.log('The session is over!')
+    };
     
     console.log("componentDidMount <App />");
     setTimeout(() => {
@@ -66,7 +65,15 @@ class App extends Component {
     this.ws.send(JSON.stringify({type: "sendMessage", content: message, username: this.state.currentUser}))
   };
 
+  changeUser = newUsername => {
+    const systemNotification = {
+      type: "notification", content: `${this.state.currentUser} changed their name to ${newUsername}`, username: newUsername
+    }
+    this.ws.send(JSON.stringify(systemNotification))
+    this.setState({currentUser: newUsername})
+  }
   render() {
+
     if (this.state.loading) {
       return <div>{Loading()}</div>;
     }
@@ -75,7 +82,7 @@ class App extends Component {
         {Nav()}
         <MessageList messages={this.state.messages} />
         <SystemMessage />
-        <Footer newMessage={this.addMessage}  user={this.state.currentUser}/>
+        <Footer changeUser={this.changeUser} newMessage={this.addMessage}  user={this.state.currentUser}/>
       </div>
     );
   }
