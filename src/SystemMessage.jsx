@@ -5,6 +5,7 @@ class SystemMessage extends Component{
     }
     render(){
         return (<div className="message-system">
+            {this.props.message.content}
         </div>);
     }
 }

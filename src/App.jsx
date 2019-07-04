@@ -25,16 +25,33 @@ class App extends Component {
     this.ws.onopen = function(e){
       console.log('I\'m Open!');
     };
+
     this.ws.onmessage = (event) =>{
-      const {username, content, id} = JSON.parse(event.data)
-      const getNewMessage = {
+      
+      const {username, content, id, type} = JSON.parse(event.data)
+      
+      if(type === "sendMessage"){
+        const getNewMessage = {
             username,
             content,
-            id
+            id,
+            type
         }
         this.setState(oldState => {
           return {messages: [...oldState.messages, getNewMessage]}
         });
+      } else if (type === "notification"){
+        const getNewMessage = {
+          username,
+          content,
+          id,
+          type
+        }
+      
+        this.setState(oldState => {
+          return {messages: [...oldState.messages, getNewMessage]}
+        });
+      }
     };
     this.ws.onclose = function(e){
       console.log('The session is over!')
@@ -46,8 +63,9 @@ class App extends Component {
       // Add a new message to the list of messages in the data store
       const newMessage = {
         id: -1,
-        username: "Michelle",
-        content: "Hello there!"
+        username: "Johnny",
+        content: "Wake the F&*^ up Samurai, we have  a city to burn...",
+        type: "sendMessage"
       };
       const messages = this.state.messages.concat(newMessage);
       // Update the state of the app component
@@ -81,8 +99,7 @@ class App extends Component {
       <div>
         {Nav()}
         <MessageList messages={this.state.messages} />
-        <SystemMessage />
-        <Footer changeUser={this.changeUser} newMessage={this.addMessage}  user={this.state.currentUser}/>
+        <Footer changeUser={this.changeUser} newMessage={this.addMessage}  user={this.state.currentUser}/>
       </div>
     );
   }

@@ -16,7 +16,6 @@ class Message extends Component {
 };
 
   render() {
-    console.log(this)
     return (
       <div className="message">
         <span className="message-username">$_ 
