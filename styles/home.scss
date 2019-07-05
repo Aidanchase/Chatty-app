@@ -12,7 +12,7 @@ body {
   color: #85ffc6;
   font-size: 23px;
   margin: 70px 0;
-}
+};
 
 #chatbar {
   font-family: "VT323";
@@ -24,10 +24,10 @@ body {
   padding: 5px;
   position: fixed;
   right: 0;
-}
+};
 *:focus{
   outline: none;
-}
+};
 
 .chatbar-message,
 .chatbar-username {
@@ -38,7 +38,7 @@ body {
   line-height: 40px;
   margin: 5px;
   padding: 0 9px;
-}
+};
 
 .chatbar-message {
   color:#ff4da6;
@@ -47,25 +47,26 @@ body {
   width: 100em;
   background-color: #001A31;
   border-color: #001A31;
-}
+};
+
 .chatbar-message:focus{
   .chatbar-username:focus{
   outline:none;
   }
-}
+};
 .chatbar-username {
   font-family: "VT323";
   color: #ff4da6;
   flex: 2;
   background-color: #001A31;
   border-color: #001A31;
-}
+};
 
 .message {
   font-family: "VT323";
   display: flex;
   padding: 5px;
-}
+};
 
 
 .message-system {
@@ -74,7 +75,7 @@ body {
   flex: 1;
   font-size: 17px;
   padding-left: 2em;
-}
+};
 
 
 .message-content,
@@ -83,12 +84,12 @@ body {
   margin: .5em;
   padding: 0 5px;
   margin-top: 20px;
-}
+};
 
 .message-content {
   font-family: "VT323";
   flex: 18;
-}
+};
 
 
 .message-username {
@@ -96,19 +97,19 @@ body {
   flex: 1;
   font-weight: 700;
   color: #85ffc6;
-}
+};
 
 .messages {
   padding-top: 110px;
   *{
     overflow-anchor: none;
   }
-}
+};
 
 .dumbDiv{
   overflow-anchor: auto;
   height: 1px;
-}
+};
 
 #navbar {
   font-family: "Warnes";
@@ -124,7 +125,7 @@ body {
   top: 0;
   border-bottom: solid 1px #ff4da6;
   animation: box-glow 1s ease-in-out infinite alternate;
-}
+};
 
 #navbar {
   a {
@@ -139,7 +140,7 @@ body {
       padding: 0;
       height:110px;
     }
-  }
+  };
 
 
 #navbar {
@@ -156,7 +157,7 @@ body {
     margin: 0;
   }
   h1:before{
-    content: '';
+    content: "";
     position: absolute;
     top: 20px;
     left: -2px;
@@ -196,7 +197,7 @@ body {
   }
   
   h1:after{
-    content: '';
+    content: "";
     position: absolute;
     top: 20px;
     left: -2px;
@@ -235,7 +236,7 @@ body {
       border-right-color: transparent;
     }
   }
-}
+};
 
 
   .userCount{
@@ -247,8 +248,7 @@ body {
   position: absolute;
   right: 80px;
   top: 110px
-}
-
+};
 
 @keyframes glow {
   from {
@@ -258,7 +258,7 @@ body {
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
   }
-}
+};
 
 @keyframes box-glow {
   from {
@@ -268,19 +268,8 @@ body {
   to {
     box-shadow: 0 0 5px #fff, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6;
   }
-}
+};
 
 .openSign{
   display: none;
-}
-
-// @keyframes text-glow {
-//   from {
-//         border-right-color: #85ffc6;
-//         text-shadow: 0 0 0px #fff, 0 0 0px #fff, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6;
-//   }
-
-//   to {
-//     text-shadow: 0 0 0px #fff, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6;
-//   }
-// }
+};

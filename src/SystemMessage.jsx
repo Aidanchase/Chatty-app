@@ -8,7 +8,7 @@ class SystemMessage extends Component{
     <div className="message-system">
       {this.props.message.content}
     </div>);
-  }
-}
+  };
+};
 
 export default SystemMessage;

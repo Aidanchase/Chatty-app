@@ -22,13 +22,13 @@ class App extends Component {
           return {
             messages: [...oldState.messages, newMessage],
             usersOnline: newMessage.number 
-          }
-        })
+          };
+        });
       } else {
           this.setState(oldState => {
             return {messages: [...oldState.messages, newMessage]}
         });
-      }
+      };
     };
     this.ws.onclose = function(e){
       console.log("The session is over!")
@@ -67,7 +67,7 @@ class App extends Component {
     }
     this.ws.send(JSON.stringify(systemNotification))
     this.setState({currentUser: newUsername})
-  }
+  };
   render() {  //render components with necessary dynamically generated data
     return (
       <div>
@@ -76,7 +76,7 @@ class App extends Component {
         <Footer changeUser={this.changeUser} newMessage={this.addMessage}  user={this.state.currentUser}/>
       </div>
     );
-  }
+  };
 };
 
 export default App;

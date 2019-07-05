@@ -12,21 +12,21 @@ class MessageList extends Component { //Check the type of incoming message and r
             <Message
               key={mssg.id}
               message={mssg}
-            />)
-          }
+            />);
+          };
           if(mssg.type === "notification" || mssg.type === "numberOfUsers"){
             return (
               <SystemMessage
                 key={mssg.id}
                 message={mssg}
               />
-            )
-          }
-        })}
+            );
+          };
+        })};
         <div className="dumbDiv"></div>
       </main>
     );
-  }
-}
+  };
+};
 
 export default MessageList;

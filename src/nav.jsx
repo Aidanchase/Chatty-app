@@ -10,8 +10,9 @@ class Nav extends Component{
 			<span className = "userCount">{this.props.usersOnline} USERS ONLINE</span>
 				<a href="/" className="navbar-brand"><h1>Chatty</h1></a>
 			<span className="border"></span>
-		</nav>);
-	}
-}
+		</nav>
+		);
+	};
+};
 
 module.exports = Nav;
