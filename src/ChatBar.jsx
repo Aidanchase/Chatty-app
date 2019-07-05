@@ -18,7 +18,7 @@ class Footer extends Component {
 		evt.preventDefault();
 		const newUsername = evt.target;
 		if (newUsername.value === ""){
-			this.props.changeUser("$_Anonymous");
+			this.props.changeUser("Anonymous");
 			newUsername.value = "";
 		} else if (newUsername.value === this.props.user){
 				console.log("No change")
