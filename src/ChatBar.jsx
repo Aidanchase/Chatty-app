@@ -18,7 +18,7 @@ class Footer extends Component {
 		evt.preventDefault();
 		const newUsername = evt.target;
 		if (newUsername.value === ""){
-			this.props.changeUser("Anonymous");
+			this.props.changeUser("$_Anonymous");
 			newUsername.value = "";
 		} else if (newUsername.value === this.props.user){
 				console.log("No change")
@@ -31,7 +31,7 @@ class Footer extends Component {
 	return (
 	<footer id="chatbar">
 		<input onBlur={this.changeUsername} className="chatbar-username" name="usernameForm" placeholder={this.props.user} />
-		<form onSubmit={this.onSubmit}>
+		<form onSubmit={this._handleOnSubmit}>
 			<input className="chatbar-message-form" className="chatbar-message" placeholder= "Type your message and hit enter" name="messageContent"/> 
 		</form>
 	</footer>);

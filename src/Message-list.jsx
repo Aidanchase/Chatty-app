@@ -23,6 +23,7 @@ class MessageList extends Component { //Check the type of incoming message and r
             )
           }
         })}
+        <div className="dumbDiv"></div>
       </main>
     );
   }

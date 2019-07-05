@@ -25,6 +25,9 @@ body {
   position: fixed;
   right: 0;
 }
+*:focus{
+  outline: none;
+}
 
 .chatbar-message,
 .chatbar-username {
@@ -38,19 +41,26 @@ body {
 }
 
 .chatbar-message {
+  color:#ff4da6;
   font-family: "VT323";
   flex: 8;
   width: 100em;
+  background-color: #001A31;
+  border-color: #001A31;
 }
-
+.chatbar-message:focus{
+  .chatbar-username:focus{
+  outline:none;
+  }
+}
 .chatbar-username {
   font-family: "VT323";
+  color: #ff4da6;
   flex: 2;
+  background-color: #001A31;
+  border-color: #001A31;
 }
 
-.chatbar-message-form{
-  background-color: #001A31;
-}
 .message {
   font-family: "VT323";
   display: flex;
@@ -88,11 +98,17 @@ body {
   color: #85ffc6;
 }
 
-.messages{
+.messages {
   padding-top: 110px;
+  *{
+    overflow-anchor: none;
+  }
 }
 
-
+.dumbDiv{
+  overflow-anchor: auto;
+  height: 1px;
+}
 
 #navbar {
   font-family: "Warnes";
