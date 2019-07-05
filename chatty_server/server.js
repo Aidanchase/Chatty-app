@@ -15,56 +15,29 @@ const server = express()
 // Create the WebSockets server
 const wss = new WebSocket.Server({ server });
 
-const broadcast = (message) =>{
+const broadcast = (message) =>{  //function to send out messages to all clients 
   wss.clients.forEach(function each(client){
     if (client.readyState === WebSocket.OPEN){
       client.send(message)
     }
   });
 }
-// Set up a callback that will run when a client connects to the server
-// When a client connects they are assigned a socket, represented by
-// the ws parameter in the callback.
-wss.on('connection', (ws) => {
+
+wss.on('connection', (ws) => {  //callback for when client connects to wss 
   console.log('Client connected');
   const numberOfUsers =  {type: "numberOfUsers", number: wss.clients.size, content: "A user has joined the chat", id: uuid()};
-  // console.log(numberOfUsers.number, numberOfUsers.systemMessage.content)
   broadcast(JSON.stringify(numberOfUsers))
 
-  ws.on('message', message =>{  
+  ws.on('message', message =>{  //callback for when client sends message
     let incomingMessage = JSON.parse(message);
     if (incomingMessage.type === "sendMessage" ||   incomingMessage.type === "notification"){
       let outgoingMessage = Object.assign({id: uuid()}, incomingMessage)
       broadcast(JSON.stringify(outgoingMessage));
     } 
   })
-  // Set up a callback for when a client closes the socket. This usually means they closed their browser.
-  ws.on('close', () => {console.log('Client disconnected');
+
+  ws.on('close', () => {console.log('Client disconnected'); //callback for when client closes socket 
   const numberOfUsers =  {type: "numberOfUsers", number: wss.clients.size, content: "A user has left the chat", id: uuid()};
   broadcast(JSON.stringify(numberOfUsers));
 })
 });
-
-
-
-// const wsserver = new WsServer({server});
-
-// let idToName ={}
-// wsserver.on('connection', (client) =>{
-//   console.log('New client', req);
-//   const userId = Math.random;
-//   idToName[userId] = "Anonymoose";
-//   client.userId = userId;
-
-
-// client.on('message', (msgData) =>{
-//   console.log(`message from user ${userId}: ${msgData}`)
-//   idToName[userId] = msgData;
-// })
-// client.on('close', () =>{
-//   console.log('client left')
-// })
-// });
-// wsserver.options('connection', (client) => {
-//   console.log('Connected to wsserver')
-// })

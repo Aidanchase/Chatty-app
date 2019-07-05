@@ -3,17 +3,6 @@ import Nav from "./nav.jsx";
 import SystemMessage from "./SystemMessage.jsx";
 import MessageList from "./Message-list.jsx";
 import Footer from "./ChatBar.jsx";
-//const ws = new WebSocket(location.origin.replace()));
-//ws.addeventlistener('open', ()=>{ws.send('wtv)}))}
-//ws.addeventlistener('message', (msg) =>{document.getElementById('messages).appendChils(document.createTextNode(msg/datas))})
-
-// const generateKey = () => {
-//   return Math.random().toString();
-// };
-
-const userInfo = {
-  currentUser: { name: "Bob" } // optional. if currentUser is not defined, it means the user is Anonymous
-};
 
 class App extends Component {
   constructor(props) {
@@ -27,7 +16,6 @@ class App extends Component {
     };
 
     this.ws.onmessage = (event) =>{
-
       const newMessage = JSON.parse(event.data)   
       if (newMessage.type === "numberOfUsers"){
         this.setState(oldState => {
@@ -68,22 +56,19 @@ class App extends Component {
   // }
   };
   
+  //add key value pairs to message object to send to server 
   addMessage = (message) =>{
     this.ws.send(JSON.stringify({type: "sendMessage", content: message, username: this.state.currentUser}))
   };
 
-  changeUser = newUsername => {
+  changeUser = newUsername => {   //update state of current user on change and send to server 
     const systemNotification = {
       type: "notification", content: `${this.state.currentUser} changed their name to ${newUsername}`, username: newUsername
     }
     this.ws.send(JSON.stringify(systemNotification))
     this.setState({currentUser: newUsername})
   }
-  render() {
-
-    if (this.state.loading) {
-      return <div>{Loading()}</div>;
-    }
+  render() {  //render components with necessary dynamically generated data
     return (
       <div>
         <Nav usersOnline={this.state.usersOnline}/>
@@ -95,14 +80,3 @@ class App extends Component {
 };
 
 export default App;
-
-// addMessage = message =>{
-  // const newMessage = {
-  //     id: generateKey(),
-  //     username: this.state.currentUser,
-  //     content: message
-  // }
-  // let tempMessages = this.state.messages;
-  // tempMessages.push(newMessage);
-  // this.setState({tempMessages});
-// }
