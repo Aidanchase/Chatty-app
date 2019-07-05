@@ -129,93 +129,15 @@ body {
 #navbar {
   a {
     font-family: "Warnes";
+    display: span;
     text-decoration: none;
       position: relative;
       text-decoration: none;
       text-align: center;
-      font-size: 40px;
+      font-size: 38px;
       color: #33FF00;
-      // transf/
-    }
-    a:before{
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      width: 0;
-      height: 0;
-      background: transparent;
-      border: 2px solid transparent;
-    }
-    a:hover:before{
-      animation: animate 1s linear forwards;
-    }
-    @keyframes animate{
-      0%{
-        width: 0;
-        height: 0;
-        border-top-color: #33FF00;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-right-color: transparent;
-      }
-      50%{
-        width: 100%;
-        height: 0;
-        border-top-color: #33FF00;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-right-color: #33FF00;
-      }
-      100%{
-        width: 100%;
-        height: 100%;
-        border-top-color: #ff4da6;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-right-color: #85ffc6;
-      }
-    }
-    
-    a:after{
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      width: 0;
-      height: 0;
-      background: transparent;
-      border: 2px solid transparent;
-    }
-    a:hover:after{
-      animation: animate2 1s linear forwards;
-      animation-delay: 1s;
-    }
-    @keyframes animate2{
-      0%{
-        width: 0;
-        height: 0;
-        border-top-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: #ff4da6;
-        border-right-color: transparent;
-      }
-      50%{
-        width: 0;
-        height: 100%;
-        border-top-color: transparent;
-        border-bottom-color: #ff4da6;
-        border-left-color: #85ffc6;
-        border-right-color: transparent;
-      }
-      100%{
-        width: 100%;
-        height: 100%;
-        border-top-color: transparent;
-        border-bottom-color: #85ffc6;
-        border-left-color: #85ffc6;
-        border-right-color: transparent;
-      }
+      padding: 0;
+      height:110px;
     }
   }
 
@@ -233,17 +155,98 @@ body {
     animation: glow 1s ease-in-out infinite alternate;
     margin: 0;
   }
+  h1:before{
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -2px;
+    width: 0;
+    height: 30px;
+    background: transparent;
+    border: 2px solid transparent;
+  }
+  h1:hover:before{
+    animation: animate 1s linear forwards;
+  }
+  @keyframes animate{
+    0%{
+      width: 0;
+      height: 0;
+      border-top-color: #33FF00;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      border-right-color: transparent;
+    }
+    50%{
+      width: 325px;
+      height: 0;
+      border-top-color: #33FF00;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      border-right-color: #33FF00;
+    }
+    100%{
+      width: 325px;
+      height: 100%;
+      border-top-color: #ff4da6;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      border-right-color: #85ffc6;
+    }
+  }
+  
+  h1:after{
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -2px;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: 2px solid transparent;
+  }
+  h1:hover:after{
+    animation: animate2 1s linear forwards;
+    animation-delay: 1s;
+  }
+  @keyframes animate2{
+    0%{
+      width: 0;
+      height: 0;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      border-left-color: #ff4da6;
+      border-right-color: transparent;
+    }
+    50%{
+      width: 0;
+      height: 100%;
+      border-top-color: transparent;
+      border-bottom-color: #ff4da6;
+      border-left-color: #85ffc6;
+      border-right-color: transparent;
+    }
+    100%{
+      width: 325px;
+      height: 100%;
+      border-top-color: transparent;
+      border-bottom-color: #85ffc6;
+      border-left-color: #85ffc6;
+      border-right-color: transparent;
+    }
+  }
 }
 
 
   .userCount{
-    font-family: "VT323";
+  font-family: "VT323";
   font-weight: 700;
   font-size: 20px;
   color: #85ffc6;
-  line-height: 250px;
-  float:right;
-  transform: translateX(40em);  
+  // line-height: 250px;
+  position: absolute;
+  right: 80px;
+  top: 110px
 }
 
 
