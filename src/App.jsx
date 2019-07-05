@@ -41,7 +41,7 @@ class App extends Component {
       const newMessage = {
         id: -1,
         username: "Johnny",
-        content: "Wake the F&*^ up Samurai, we have  a city to burn...",
+        content: "Good day folks!!!",
         type: "sendMessage"
       };
       const messages = this.state.messages.concat(newMessage);

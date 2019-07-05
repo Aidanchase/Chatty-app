@@ -1,7 +1,8 @@
-Chatty App
+#Chatty App
 =====================
 
 A single page chat room built with React.
+## Screenshots
 
 ### Usage
 
