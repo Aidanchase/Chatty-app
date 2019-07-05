@@ -20,9 +20,9 @@ class MessageList extends Component { //Check the type of incoming message and r
                 key={mssg.id}
                 message={mssg}
               />
-            );
+            )
           };
-        })};
+        })}
         <div className="dumbDiv"></div>
       </main>
     );

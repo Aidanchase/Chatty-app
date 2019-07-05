@@ -7,13 +7,13 @@ class Message extends Component { //Access state and dynamically display content
     super(props)
     this.state = {id: this.props.message.id, content: ""}
     this.delayCont(props.message.content)
-  }
+  };
   delayCont = (content)=>{  //delay each character to create terminal effect
     let delay = 0;
     for (let char of content){
       setTimeout(function () {
         this.setState({content: this.state.content += char})}.bind(this), delay+=20)
-    } 
+    }; 
   };
   render() {
     return (
@@ -23,8 +23,8 @@ class Message extends Component { //Access state and dynamically display content
         <span className="message-content">{this.state.content}</span>
       </div>
     );
-  }
-}
+  };
+};
 
 export default Message;
 
