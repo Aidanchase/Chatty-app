@@ -10,9 +10,9 @@ class App extends Component {
     this.state = { usersOnline: 0, currentUser: "Keanu", messages: [], loading: false };
   };
   componentDidMount() {
-    this.ws = new WebSocket('ws://localhost:3001');
+    this.ws = new WebSocket("ws://localhost:3001");
     this.ws.onopen = function(e){
-      console.log('I\'m Open!');
+      console.log("I\'m Open!");
     };
 
     this.ws.onmessage = (event) =>{
@@ -31,7 +31,7 @@ class App extends Component {
       }
     };
     this.ws.onclose = function(e){
-      console.log('The session is over!')
+      console.log("The session is over!")
     };
     
     console.log("componentDidMount <App />");

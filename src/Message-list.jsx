@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import Message from "./Message.jsx";
-import SystemMessage from './SystemMessage.jsx';
+import SystemMessage from "./SystemMessage.jsx";
 
 class MessageList extends Component { //Check the type of incoming message and render appropriately 
   render(){
