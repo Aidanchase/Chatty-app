@@ -18,7 +18,7 @@ const userInfo = {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentUser: "Keanu", messages: [], loading: false };
+    this.state = { usersOnline: 0, currentUser: "Keanu", messages: [], loading: false };
   };
   componentDidMount() {
     this.ws = new WebSocket('ws://localhost:3001');
@@ -27,29 +27,18 @@ class App extends Component {
     };
 
     this.ws.onmessage = (event) =>{
-      
-      const {username, content, id, type} = JSON.parse(event.data)
-      
-      if(type === "sendMessage"){
-        const getNewMessage = {
-            username,
-            content,
-            id,
-            type
-        }
+
+      const newMessage = JSON.parse(event.data)   
+      if (newMessage.type === "numberOfUsers"){
         this.setState(oldState => {
-          return {messages: [...oldState.messages, getNewMessage]}
-        });
-      } else if (type === "notification"){
-        const getNewMessage = {
-          username,
-          content,
-          id,
-          type
-        }
-      
-        this.setState(oldState => {
-          return {messages: [...oldState.messages, getNewMessage]}
+          return {
+            messages: [...oldState.messages, newMessage],
+            usersOnline: newMessage.number 
+          }
+        })
+      } else {
+          this.setState(oldState => {
+            return {messages: [...oldState.messages, newMessage]}
         });
       }
     };
@@ -97,8 +86,8 @@ class App extends Component {
     }
     return (
       <div>
-        {Nav()}
-        <MessageList messages={this.state.messages} />
+        <Nav usersOnline={this.state.usersOnline}/>
+        <MessageList usersOnline={this.state.usersOnline} messages={this.state.messages} />
         <Footer changeUser={this.changeUser} newMessage={this.addMessage}  user={this.state.currentUser}/>
       </div>
     );

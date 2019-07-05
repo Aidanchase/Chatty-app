@@ -14,7 +14,7 @@ class MessageList extends Component {
               message={mssg}
             />)
           }
-          if(mssg.type === "notification"){
+          if(mssg.type === "notification" || mssg.type === "numberOfUsers"){
             return (
               <SystemMessage
                 key={mssg.id}

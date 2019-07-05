@@ -27,6 +27,9 @@ const broadcast = (message) =>{
 // the ws parameter in the callback.
 wss.on('connection', (ws) => {
   console.log('Client connected');
+  const numberOfUsers =  {type: "numberOfUsers", number: wss.clients.size, content: "A user has joined the chat", id: uuid()};
+  // console.log(numberOfUsers.number, numberOfUsers.systemMessage.content)
+  broadcast(JSON.stringify(numberOfUsers))
 
   ws.on('message', message =>{  
     let incomingMessage = JSON.parse(message);
@@ -34,10 +37,12 @@ wss.on('connection', (ws) => {
       let outgoingMessage = Object.assign({id: uuid()}, incomingMessage)
       broadcast(JSON.stringify(outgoingMessage));
     } 
-    
   })
   // Set up a callback for when a client closes the socket. This usually means they closed their browser.
-  ws.on('close', () => console.log('Client disconnected'));
+  ws.on('close', () => {console.log('Client disconnected');
+  const numberOfUsers =  {type: "numberOfUsers", number: wss.clients.size, content: "A user has left the chat", id: uuid()};
+  broadcast(JSON.stringify(numberOfUsers));
+})
 });
 
 

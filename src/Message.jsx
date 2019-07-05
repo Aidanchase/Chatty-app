@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 
+
 class Message extends Component {
   constructor(props){
     super(props)
@@ -11,13 +12,12 @@ class Message extends Component {
     let delay = 0;
     for (let char of content){
       setTimeout(function () {
-        this.setState({content: this.state.content += char})}.bind(this), delay+=10)
+        this.setState({content: this.state.content += char})}.bind(this), delay+=20)
     } 
-};
-
+  };
   render() {
     return (
-      <div className="message">
+      <div  className="message">
         <span className="message-username">$_ 
         {this.props.message.username}</span>
         <span className="message-content">{this.state.content}</span>

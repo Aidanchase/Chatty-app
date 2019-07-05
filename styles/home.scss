@@ -97,7 +97,6 @@ body {
 #navbar {
   font-family: "Warnes";
   display: flex;
-  align-items: center;
   justify-content: center;
   background: #001A31;
   border-bottom: 1px solid black;
@@ -120,6 +119,7 @@ body {
       text-align: center;
       font-size: 40px;
       color: #33FF00;
+      // transf/
     }
     a:before{
       content: '';
@@ -209,9 +209,8 @@ body {
     font-family: "Warnes";
     color: #85ffc6;
     display: block;
-    justify-content: flex-start;
     font-weight: 800;
-    line-height: 60px;
+    line-height: 150px;
     padding: 0 10px;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
@@ -219,6 +218,18 @@ body {
     margin: 0;
   }
 }
+
+
+  .userCount{
+    font-family: "VT323";
+  font-weight: 700;
+  font-size: 20px;
+  color: #85ffc6;
+  line-height: 250px;
+  float:right;
+  transform: translateX(40em);  
+}
+
 
 @keyframes glow {
   from {
@@ -239,3 +250,18 @@ body {
     box-shadow: 0 0 5px #fff, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6;
   }
 }
+
+.openSign{
+  display: none;
+}
+
+// @keyframes text-glow {
+//   from {
+//         border-right-color: #85ffc6;
+//         text-shadow: 0 0 0px #fff, 0 0 0px #fff, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6;
+//   }
+
+//   to {
+//     text-shadow: 0 0 0px #fff, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6, 0 0 0px #85ffc6;
+//   }
+// }
